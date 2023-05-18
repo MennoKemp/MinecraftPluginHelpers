@@ -1,0 +1,4 @@
+name: PluginHelpers
+main: com.github.mennokemp.minecraft.pluginhelpers.PluginHelpers
+version: 1.0
+api-version: 1.18
