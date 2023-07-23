@@ -12,13 +12,18 @@ public abstract class ScoreboardDao<T> implements IScoreboardDao<T>
 {
 	private final Scoreboard scoreboard;
 	
+	private final String objectiveName;
+	private final String displayName;
+	
 	private Objective objective;
 	
-	protected ScoreboardDao(Scoreboard scoreboard) 
+	protected ScoreboardDao(Scoreboard scoreboard, String objectiveName, String displayName) 
 	{
 		this.scoreboard = scoreboard;
+		this.objectiveName = objectiveName;
+		this.displayName = displayName;
 		
-		objective = scoreboard.getObjective(getObjectiveName());
+		objective = scoreboard.getObjective(objectiveName);
 		
 		if(objective == null)
 			createObjective();
@@ -39,7 +44,7 @@ public abstract class ScoreboardDao<T> implements IScoreboardDao<T>
 	@Override
 	public void clear()
 	{
-		scoreboard.getObjective(getObjectiveName()).unregister();
+		scoreboard.getObjective(objectiveName).unregister();
 		createObjective();
 	}
 	
@@ -49,10 +54,6 @@ public abstract class ScoreboardDao<T> implements IScoreboardDao<T>
 		objective.setDisplaySlot(displaySlot);
 	}
 	
-	protected abstract String getObjectiveName();
-	
-	protected abstract String getObjectiveDisplayName();
-	
 	protected Objective getObjective()
 	{
 		return objective;
@@ -60,6 +61,6 @@ public abstract class ScoreboardDao<T> implements IScoreboardDao<T>
 	
 	private void createObjective()
 	{
-		objective = scoreboard.registerNewObjective(getObjectiveName(), Criteria.DUMMY, getObjectiveDisplayName(), RenderType.INTEGER);    	
+		objective = scoreboard.registerNewObjective(objectiveName, Criteria.DUMMY, displayName, RenderType.INTEGER);    	
 	}
 }
