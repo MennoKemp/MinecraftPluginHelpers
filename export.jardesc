@@ -11,6 +11,15 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
-        <javaElement handleIdentifier="=MinecraftPluginHelpers"/>
+        <file path="/MinecraftPluginHelpers/.classpath"/>
+        <file path="/MinecraftPluginHelpers/LICENSE"/>
+        <file path="/MinecraftPluginHelpers/export.jardesc"/>
+        <file path="/MinecraftPluginHelpers/.gitignore"/>
+        <file path="/MinecraftPluginHelpers/README.md"/>
+        <file path="/MinecraftPluginHelpers/plugin.yml"/>
+        <file path="/MinecraftPluginHelpers/.project"/>
+        <folder path="/MinecraftPluginHelpers/target"/>
+        <file path="/MinecraftPluginHelpers/pom.xml"/>
+        <javaElement handleIdentifier="=MinecraftPluginHelpers/src=/optional=/true=/=/maven.pomderived=/true=/"/>
     </selectedElements>
 </jardesc>
