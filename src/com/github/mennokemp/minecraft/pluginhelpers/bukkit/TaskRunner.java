@@ -13,7 +13,7 @@ public class TaskRunner
 	private Runnable completionTask;
 	private long delay;
 	private long interval = Constants.TicksPerSecond;
-	private int cycleCount = 1;
+	private int cycleCount = Integer.MAX_VALUE;
 	private int currentCycle = 1;
 	
 	private BukkitRunnable bukkitTask;
@@ -140,7 +140,10 @@ public class TaskRunner
 				if(currentCycle >= cycleCount)
 				{
 					cancel();
-					completionTask.run();		
+					
+					if(completionTask != null)
+						completionTask.run();		
+					
 					isRunning = false;
 					return;
 				}
